@@ -1,0 +1,25 @@
+{% extends "admin/change_form.html" %}
+
+{% block extrahead %}
+    {% load cmsplugin_blog_tags %}
+    {{ block.super }}
+    {% if add %}
+        <script type="text/javascript">
+            //<![CDATA[
+
+            jQuery(document).ready(function (){
+                jQuery("#id_title").keyup(function () {
+                    var e = jQuery("#id_slug")[0];
+                    if(!e._changed) {
+                        e.value = URLify(this.value, 64);
+                    }
+                });
+            });
+
+            //]]>
+        </script>
+    {% else %}
+        <script type="text/javascript" src="{{ STATIC_URL|default:MEDIA_URL }}cmsplugin_blog/change_form.js"></script>
+    {% endif %}
+    {% admin_helpers %}
+{% endblock %}

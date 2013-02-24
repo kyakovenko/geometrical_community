@@ -2,6 +2,7 @@
 {% load cms_tags menu_tags sekizai_tags %}
 
 {% block header %}
+    {% language_chooser %}
     {% if user.is_authenticated %}
         {% cms_toolbar %}
     {% endif %}

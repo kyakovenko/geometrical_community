@@ -42,7 +42,7 @@ TIME_ZONE = 'Asia/Omsk'
 LANGUAGE_CODE = 'ru-RU'
 
 LANGUAGES = [
-    ('ru', 'Русский'),
+    ('ru', 'Russian'),#'Русский'),
     ('en', 'English')
 ]
 
@@ -109,15 +109,17 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'cms.middleware.multilingual.MultilingualURLMiddleware',
     'cms.middleware.page.CurrentPageMiddleware',
     'cms.middleware.user.CurrentUserMiddleware',
     'cms.middleware.toolbar.ToolbarMiddleware',
+    'cmsplugin_blog.middleware.MultilingualBlogEntriesMiddleware',
+
 )
 
 ROOT_URLCONF = 'geometrical_community.urls'
@@ -152,13 +154,17 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    # 'django.contrib.comments',
     # external packages
     'cms',
     'mptt',
     'menus',
     'filer',
+    'tagging',
     'sekizai',
+    'missing',
     'easy_thumbnails',
+    'simple_translation',
     # cms plugins
     'cms.plugins.flash',
     'cms.plugins.googlemap',
@@ -171,6 +177,8 @@ INSTALLED_APPS = (
     'cmsplugin_filer_image',
     'cmsplugin_filer_teaser',
     'cmsplugin_filer_video',
+    'cmsplugin_blog',
+    'djangocms_utils',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -207,3 +215,7 @@ THUMBNAIL_PROCESSORS = (
 )
 
 TEXT_SAVE_IMAGE_FUNCTION='cmsplugin_filer_image.integrations.ckeditor.create_image_plugin'
+
+JQUERY_JS = 'https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js'
+JQUERY_UI_JS = 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/jquery-ui.min.js'
+JQUERY_UI_CSS = 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/smoothness/jquery-ui.css'
