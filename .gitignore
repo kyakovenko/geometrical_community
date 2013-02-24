@@ -3,6 +3,7 @@
 .ve/
 .idea/
 .DS_Store
+database.db
 staticfiles/
 local_settings.py
 static/media/
