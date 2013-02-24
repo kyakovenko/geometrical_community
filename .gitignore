@@ -1,0 +1,8 @@
+*.pyc
+*.class
+.ve/
+.idea/
+.DS_Store
+staticfiles/
+local_settings.py
+static/media/
