@@ -156,18 +156,21 @@ INSTALLED_APPS = (
     'cms',
     'mptt',
     'menus',
+    'filer',
     'sekizai',
+    'easy_thumbnails',
     # cms plugins
-    'cms.plugins.file',         #?
     'cms.plugins.flash',
     'cms.plugins.googlemap',
     'cms.plugins.link',
-    'cms.plugins.picture',
     'cms.plugins.snippet',
-    'cms.plugins.teaser',       #?
     'cms.plugins.text',
-    'cms.plugins.video',        #?
     'cms.plugins.twitter',
+    'cmsplugin_filer_file',
+    'cmsplugin_filer_folder',
+    'cmsplugin_filer_image',
+    'cmsplugin_filer_teaser',
+    'cmsplugin_filer_video',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -192,3 +195,15 @@ LOGGING = {
         },
     }
 }
+
+# Settings for plugins
+
+THUMBNAIL_PROCESSORS = (
+    'easy_thumbnails.processors.colorspace',
+    'easy_thumbnails.processors.autocrop',
+    #'easy_thumbnails.processors.scale_and_crop',
+    'filer.thumbnail_processors.scale_and_crop_with_subject_location',
+    'easy_thumbnails.processors.filters',
+)
+
+TEXT_SAVE_IMAGE_FUNCTION='cmsplugin_filer_image.integrations.ckeditor.create_image_plugin'

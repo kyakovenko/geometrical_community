@@ -2,5 +2,7 @@ Django==1.4.5
 django-cms==2.3.5
 django-blog-zinnia==0.12.2
 cmsplugin_zinnia==0.4
+django-filer==0.9.3
+cmsplugin-filer==0.9.4
 
 PIL
