@@ -172,7 +172,7 @@ INSTALLED_APPS = (
     'cms.plugins.link',
     'cms.plugins.snippet',
     'cms.plugins.text',
-    'cms.plugins.twitter',
+    #'cms.plugins.twitter',
     'cmsplugin_filer_file',
     'cmsplugin_filer_link',
     'cmsplugin_filer_folder',
@@ -181,6 +181,9 @@ INSTALLED_APPS = (
     'cmsplugin_filer_video',
     'cmsplugin_blog',
     'djangocms_utils',
+
+    #own applications
+    'community',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -207,6 +210,8 @@ LOGGING = {
 }
 
 # Settings for plugins
+
+CMS_PLUGIN_PROCESSORS = ['cms_plugin_processors.wrap_content', ]
 
 THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.colorspace',
@@ -256,11 +261,12 @@ TINYMCE_PLUGINS = [
     'wordcount',
     'advlist',
     'autosave',
-    ]
+]
 
-CMS_PLUGIN_TEXT_TINYMCE_CONFIG={
+CMS_PLUGIN_TEXT_TINYMCE_CONFIG = {
     'mode': "textareas",
     'theme': "advanced",
+    'height': 505,
     'plugins': ",".join(TINYMCE_PLUGINS), # django-cms
     'language': 'en',
     'theme_advanced_buttons1': "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
