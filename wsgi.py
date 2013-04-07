@@ -19,7 +19,7 @@ __email__ = 'kirill.yakovenko@gmail.com'
 
 import os
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "expander_webservice.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "geometrical_community.settings")
 
 # This application object is used by any WSGI server configured to use this
 # file. This includes Django's development server, if the WSGI_APPLICATION

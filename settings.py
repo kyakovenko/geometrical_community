@@ -136,8 +136,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 CMS_TEMPLATES = (
-    ('example.html', 'Example Template'),
-    ('bootstrap.html', 'HTML5 bootstrap')
+    ('bootstrap.html', 'HTML5 Bootstrap'),
+    ('skybox.html', 'HTML5 Skybox'),
 )
 
 CMS_PAGE_MEDIA_PATH = os.path.join(MEDIA_ROOT, 'pages')
