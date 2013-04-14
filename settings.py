@@ -20,7 +20,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': os.path.join(PROJECT_ROOT,'database.db'),
+        'NAME': os.path.join(PROJECT_ROOT, 'database.db'),
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -138,6 +138,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 CMS_TEMPLATES = (
     ('bootstrap.html', 'HTML5 Bootstrap'),
     ('skybox.html', 'HTML5 Skybox'),
+    ('skybox_slider.html', 'HTML5 Skybox with slider'),
 )
 
 CMS_PAGE_MEDIA_PATH = os.path.join(MEDIA_ROOT, 'pages')
@@ -261,13 +262,15 @@ TINYMCE_PLUGINS = [
     'wordcount',
     'advlist',
     'autosave',
+    #'retina_icons'
 ]
 
 CMS_PLUGIN_TEXT_TINYMCE_CONFIG = {
     'mode': "textareas",
     'theme': "advanced",
     'height': 505,
-    'plugins': ",".join(TINYMCE_PLUGINS), # django-cms
+    'schema': 'html5',
+    'plugins': ",".join(TINYMCE_PLUGINS),  # django-cms
     'language': 'en',
     'theme_advanced_buttons1': "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
     'theme_advanced_buttons2': "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",

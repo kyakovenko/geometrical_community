@@ -79,8 +79,9 @@
             </ul>
         </div>
         <!-- End Menu -->
-
-        {% placeholder header %}
+        {% block header_content %}
+            {% placeholder header %}
+        {% endblock %}
 
     </div>
     <!-- End Inner -->
@@ -90,13 +91,17 @@
 <!-- Begin Box Wrapper -->
 <div class="box-wrapper">
 
-    {% placeholder content %}
+    {% block base_content %}
+        {% placeholder content %}
+    {% endblock %}
 
 <!-- Begin Footer -->
 <div class="footer-wrapper">
     <div class="footer-light"></div>
     <div class="footer">
-        {% placeholder footer %}
+        {% block footer_block %}
+            {% placeholder footer %}
+        {% endblock %}
         <div class="clear"></div>
     </div>
 </div>
