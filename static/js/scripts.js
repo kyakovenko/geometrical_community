@@ -537,10 +537,10 @@ jQuery(document).ready(function() {
 				});
 				
 				jQuery('.filter').click(function() { 
-        api.megafilter(jQuery(this).data('category')); 
-        jQuery('.active').each(function() { jQuery(this).removeClass('active')});
-        jQuery(this).addClass('active');
-     });
+        api.megafilter(jQuery(this).data('category'));
+        jQuery('.active').each(function() { jQuery(this).removeClass('active')});
+        jQuery(this).addClass('active');
+    });
 					
 					jQuery(".pad").change(function() {
 						var mc = jQuery('.megafolio-container');
@@ -605,10 +605,10 @@ $(document).ready(function(){
 /*-----------------------------------------------------------------------------------*/
 
 jQuery(document).ready(function($) {
-	$('.showbiz-container').showbizpro({       
-       containerOffsetRight:5,
-       heightOffsetBottom:5
-      });
+    $('.showbiz-container').showbizpro({
+        containerOffsetRight:5,
+        heightOffsetBottom:5
+    });
 });
 
 /*-----------------------------------------------------------------------------------*/

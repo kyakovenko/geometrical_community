@@ -484,7 +484,7 @@
 .icon-attach-1:before { content: '\e80f'; } /* '' */
 .icon-bookmarks:before { content: '\f4d1'; } /* '' */
 .icon-book:before { content: '\f4d5'; } /* '' */
-.icon-book-1:before { content: '\e866'; } /* '' */
+.mce_retina_icons:before, .icon-book-1:before { content: '\e866'; } /* '' */
 .icon-book-open:before { content: '\f4d6'; } /* '' */
 .icon-phone:before { content: '\f4de'; } /* '' */
 .icon-phone-1:before { content: '\e82f'; } /* '' */
