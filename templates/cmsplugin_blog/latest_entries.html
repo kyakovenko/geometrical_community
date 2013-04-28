@@ -1,0 +1,14 @@
+{% load i18n %}
+
+<h2 class="line">{% trans "Recent Posts" %}</h2>
+<div class="grid-wrapper">
+    <div class="grid">
+        {% if object_list %}
+            {% include "cmsplugin_blog/entry_list_include.html" %}
+        {% else %}
+            <p>{% trans "No entries" %}</p>
+        {% endif %}
+    </div>
+</div>
+<div class="clear"></div>
+

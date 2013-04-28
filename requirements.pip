@@ -1,9 +1,5 @@
-Django==1.4.5
-django-cms==2.3.5
-django-filer==0.9.3
-cmsplugin-filer==0.9.4
-
-git+https://github.com/fivethreeo/cmsplugin-blog.git
+Django==1.5.1
+django-cms==2.4.0
 
 PIL
-django-tinymce
+git+https://github.com/fivethreeo/cmsplugin-blog.git

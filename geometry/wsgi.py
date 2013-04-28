@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
 """
-WSGI config for expander_webservice project.
+WSGI config for geometry project.
 
 This module contains the WSGI application used by Django's development server
 and any production WSGI deployments. It should expose a module-level variable
@@ -14,12 +13,9 @@ middleware here, or combine a Django application with an application of another
 framework.
 
 """
-__author__ = 'Kirill S. Yakovenko'
-__email__ = 'kirill.yakovenko@gmail.com'
-
 import os
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "geometrical_community.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "geometry.settings")
 
 # This application object is used by any WSGI server configured to use this
 # file. This includes Django's development server, if the WSGI_APPLICATION
