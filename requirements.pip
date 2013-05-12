@@ -1,5 +1,6 @@
 Django==1.5.1
-django-cms==2.4.0
+django-cms==2.4.1
 
 PIL
-git+https://github.com/fivethreeo/cmsplugin-blog.git
+pytz
+git+https://github.com/kyakovenko/cmsplugin-blog.git@news_blog

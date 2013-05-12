@@ -15,7 +15,8 @@
                 <div class="meta">
                     <div class="category">
                         {% tags_for_object entry as tag_list %}
-                            {% for tag in tag_list %}{{ tag }}{% if not forloop.last %}, {% endif %}
+                        {% for tag in tag_list %}
+                            <a href="{#  #} url 'blog_archive_tagged' tag.name #}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
                         {% endfor %}
                     </div>
                 </div>
