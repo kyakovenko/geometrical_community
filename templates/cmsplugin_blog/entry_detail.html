@@ -1,0 +1,59 @@
+{% extends 'skybox.html' %}
+{% load i18n %}
+{% load placeholder_tags cmsplugin_blog_tags simple_translation_tags tagging_tags %}
+
+{% block base_content %}
+<!-- Begin White Wrapper -->
+<div class="white-wrapper">
+  <!-- Begin Inner -->
+  <div class="inner">
+    <div class="page-intro line clearfix">
+      <h1 class="page-title">{% block blog_page_title %}{% trans 'News' %}{% endblock %}</h1>
+    </div>
+    <div class="content">
+      <div class="post">
+        <div class="info">
+
+          <div class="date">
+            <div class="day">{{ entry.pub_date.day }}</div>
+            <div class="month">{{ entry.pub_date|date:"F" }}</div>
+            <div class="year">{{ entry.pub_date.year }}</div>
+          </div>
+
+          <div class="details">
+            <div class="languages">{{ entry|render_language_choices:request|safe }}</div>
+            {% with entry|get_preferred_translation_from_request:request as title%}
+              <h6>{{ title }}</h6>
+            {% endwith %}
+            <div class="meta">
+              <div class="category">
+              {% tags_for_object entry as tag_list %}
+              {% for tag in tag_list %}
+                <a href="{% url 'blog_archive_tagged' tag.name %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
+              {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+        {% with entry.placeholders|choose_placeholder:"content" as content %}
+          {% render_placeholder content %}
+        {% endwith %}
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebox">
+        {% render_tag_links %}
+      </div>
+      <div class="sidebox">
+        {% render_month_links %}
+      </div>
+    </div>
+
+    <div class="clear"></div>
+  </div>
+  <!-- End Inner -->
+</div>
+<!-- End White Wrapper -->
+<div class="divider white-wrapper"></div>
+{% endblock %}

@@ -1,14 +1,19 @@
 __author__ = 'Kirill S. Yakovenko'
 __email__ = 'kirill.yakovenko@gmail.com'
 
-from django.conf.urls import include, url
+from cms.sitemaps import CMSSitemap
 from django.conf.urls.i18n import i18n_patterns
+from django.conf.urls import include, url, patterns
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = i18n_patterns('',
+urlpatterns = patterns('',
+    url(r'^sitemap.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': {'cmspages': CMSSitemap}})
+)
+
+urlpatterns += i18n_patterns('',
 
     # Examples:
     # url(r'^$', 'geometry.views.home', name='home'),

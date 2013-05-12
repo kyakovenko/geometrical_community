@@ -1,4 +1,9 @@
 {% extends 'cmsplugin_blog/entry_archive.html' %}
 {% load i18n %}
 
+{% block extra_scripts %}
+<link rel="alternate" type="application/rss+xml" title="RSS feed for tag &quot;{{ tag|escape }}&quot;" href="{% url "blog_rss_tagged" tag %}" />
+<link rel="alternate" type="application/rss+xml" title="RSS feed for tag &quot;{{ tag|escape }}&quot; (any language)" href="{% url "blog_rss_any_tagged" tag %}" />
+{% endblock %}
+
 {% block blog_page_title %}{% trans "Entries tagged" %} "{{ tag }}"{% endblock %}

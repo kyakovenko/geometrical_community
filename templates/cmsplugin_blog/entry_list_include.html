@@ -24,7 +24,7 @@
             </div>
         </div>
         {% with entry.placeholders|choose_placeholder:"excerpt" as excerpt %}
-            {% render_placeholder excerpt 400 %}
+            {% render_placeholder excerpt %}
         {% endwith %}
 
         {% if continue_link %}<a href="{{ title.get_absolute_url }}" class="more">Continue reading →</a>{% endif %}

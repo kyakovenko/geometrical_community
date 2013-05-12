@@ -47,6 +47,7 @@
     <script type="text/javascript" src="{{ STATIC_URL }}js/fancybox/helpers/jquery.fancybox-media.js?v=1.0.0"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.dpSocialTimeline.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.themepunch.showbizpro.js"></script>
+    {% block extra_scripts %}{% endblock %}
 </head>
 <body class="box-layout">
 {% if user.is_authenticated %}

@@ -1,4 +1,9 @@
 {% extends 'cmsplugin_blog/entry_archive.html' %}
 {% load i18n %}
 
+{% block extra_scripts %}
+<link rel="alternate" type="application/rss+xml" title="RSS feed for author {{ author|escape }}" href="{% url "blog_rss_author" author %}" />
+<link rel="alternate" type="application/rss+xml" title="RSS feed for author {{ author|escape }} (any language)" href="{% url "blog_rss_any_author" author %}" />
+{% endblock %}
+
 {% block blog_page_title %}{% trans "Entries for" %} "{{ author }}"{% endblock %}
