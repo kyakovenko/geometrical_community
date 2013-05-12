@@ -8,7 +8,7 @@
   <!-- Begin Inner -->
   <div class="inner">
     <div class="page-intro line clearfix">
-      <h1 class="page-title">{% trans 'News' %}</h1>
+      <h1 class="page-title">{% block blog_page_title %}{% trans 'News' %}{% endblock %}</h1>
     </div>
     <div class="intro">
       Здесь мы можем разместить кратное описание блока новостей или убрать эту надпись вообще.
@@ -18,7 +18,7 @@
       {% if object_list %}
         {% include "cmsplugin_blog/entry_list_include.html" with continue_link=True %}
       {% else %}
-        <p>{% trans "No entries" %}</p>
+        <h1>{% trans "No entries" %}</h1>
       {% endif %}
 
       {% if is_paginated %}
