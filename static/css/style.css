@@ -1492,15 +1492,15 @@ only screen and (min-device-pixel-ratio: 1.5) {
     font-weight: bold;
     font-size: 19px;
     line-height: 1;
+    margin-right: 10px;
 }
-.post .date .month {
+.post .date .month,
+.post .date .year{
     text-transform: uppercase;
     font-size: 11px;
     margin-top: 1px;
 }
 .post .details {
-    float: left;
-    display: inline-block;
     overflow: hidden;
     margin-left: 10px;
 }
@@ -1509,6 +1509,13 @@ only screen and (min-device-pixel-ratio: 1.5) {
     margin-top: 2px;
     font-size: 15px;
     line-height: 20px;
+    text-align: justify;
+}
+.post .details .languages {
+    float: right;
+    display: inline-block;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 .grid .post .details h6 {
     font-size: 15px;

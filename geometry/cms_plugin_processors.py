@@ -6,7 +6,10 @@ from django.template.loader import render_to_string
 
 
 def wrap_content(instance, placeholder, rendered_content, original_context):
-    if original_context.get('plugin_index') % 2 == 0:
-        return render_to_string('cms/white-wrapper.html', {"content": rendered_content})
+    if placeholder.page:
+        if original_context.get('plugin_index') % 2 == 0:
+            return render_to_string('cms/white-wrapper.html', {"content": rendered_content})
+        else:
+            return render_to_string('cms/gray-wrapper.html', {"content": rendered_content})
     else:
-        return render_to_string('cms/gray-wrapper.html', {"content": rendered_content})
+        return rendered_content

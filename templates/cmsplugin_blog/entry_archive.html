@@ -1,0 +1,58 @@
+{% extends "skybox.html" %}
+
+{% load i18n cmsplugin_blog_tags %}
+
+{% block base_content %}
+<!-- Begin White Wrapper -->
+<div class="white-wrapper">
+  <!-- Begin Inner -->
+  <div class="inner">
+    <div class="page-intro line clearfix">
+      <h1 class="page-title">{% trans 'News' %}</h1>
+    </div>
+    <div class="intro">
+      Здесь мы можем разместить кратное описание блока новостей или убрать эту надпись вообще.
+    </div>
+    <div class="content">
+
+      {% if object_list %}
+        {% include "cmsplugin_blog/entry_list_include.html" with continue_link=True %}
+      {% else %}
+        <p>{% trans "No entries" %}</p>
+      {% endif %}
+
+      {% if is_paginated %}
+      <!-- Begin Page Navi -->
+      <div class="page-navi">
+        <ul>
+          {% if page_obj.has_previous %}
+            <li><a href="?page=1">&laquo;</a></li>
+            <li><a href="?page={{ page_obj.previous_page_number }}">&lsaquo;</a></li>
+          {% endif %}
+          <li><a href="#" class="current">{{ page_obj.number }}</a></li>
+          {% if page_obj.has_next %}
+            <li><a href="?page={{ page_obj.next_page_number }}">&rsaquo;</a></li>
+            <li><a href="?page={{ paginator.num_pages }}">&raquo;</a></li>
+          {% endif %}
+        </ul>
+      </div>
+      <!-- End Page Navi -->
+      {% endif %}
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebox">
+        {% render_tag_links %}
+      </div>
+      <div class="sidebox">
+        {% render_month_links %}
+      </div>
+    </div>
+
+    <div class="clear"></div>
+  </div>
+  <!-- End Inner -->
+</div>
+<!-- End White Wrapper -->
+<div class="divider white-wrapper"></div>
+{% endblock %}

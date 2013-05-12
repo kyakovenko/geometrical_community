@@ -1,36 +1,33 @@
 {% load i18n placeholder_tags cmsplugin_blog_tags simple_translation_tags tagging_tags %}
-<div class="grid">
 {% for entry in object_list|annotate_with_translations %}
     <div class="post">
+        {% with entry|get_preferred_translation_from_request:request as title%}
         <div class="info">
+
             <div class="date">
                 <div class="day">{{ entry.pub_date.day }}</div>
-                <div class="month">{{ entry.pub_date|date:"b" }}</div>
+                <div class="month">{{ entry.pub_date|date:"F" }}</div>
                 <div class="year">{{ entry.pub_date.year }}</div>
             </div>
+
             <div class="details">
-                {% with entry|get_preferred_translation_from_request:request as title %}
+                <div class="languages">{{ entry|render_language_choices:request|safe }}</div>
                 <h6><a href="{{ title.get_absolute_url }}">{{ title }}</a></h6>
-                {% endwith %}
                 <div class="meta">
                     <div class="category">
                         {% tags_for_object entry as tag_list %}
                         {% for tag in tag_list %}
-                            <a href="{#  #} url 'blog_archive_tagged' tag.name #}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
+                            <a href="{% url 'blog_archive_tagged' tag.name %}">{{ tag }}</a>{% if not forloop.last %}, {% endif %}
                         {% endfor %}
                     </div>
                 </div>
             </div>
-            <p>{{ entry|render_language_choices:request|safe }}</p>
         </div>
-{#    {% with entry|get_preferred_translation_from_request:request as title %}#}
-{#        {% with entry.placeholders|choose_placeholder:"excerpt" as excerpt %}#}
-{#            <p>{{ entry.pub_date|date:"d b Y" }}<br/><a href="{{ title.get_absolute_url }}">{{ title }}</a>#}
-{#                {{ entry|render_language_choices:request|safe }}#}
-{#            </p>#}
-{#            {% render_placeholder excerpt %}#}
-{#        {% endwith %}#}
-{#    {% endwith %}#}
+        {% with entry.placeholders|choose_placeholder:"excerpt" as excerpt %}
+            {% render_placeholder excerpt 400 %}
+        {% endwith %}
+
+        {% if continue_link %}<a href="{{ title.get_absolute_url }}" class="more">Continue reading →</a>{% endif %}
+        {% endwith %}
     </div>
 {% endfor %}
-</div>
