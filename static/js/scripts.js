@@ -214,7 +214,7 @@ $(document).ready(function () {
 /*	FORM
 /*-----------------------------------------------------------------------------------*/
 jQuery(document).ready(function($){
-	$('.forms').dcSlickForms();
+	$('.forms').dcSlickForms({ajaxSubmit: false});
 });
 
 

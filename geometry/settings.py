@@ -133,6 +133,9 @@ INSTALLED_APPS = (
     'simple_translation',
     # cms plugins
     'cms.plugins.text',
+    'cms.plugins.snippet',
+    'cms.plugins.inherit',
+    'cmsplugin_user_contact',
     # blog
     'cmsplugin_blog',
     'djangocms_utils',
@@ -142,7 +145,7 @@ INSTALLED_APPS = (
     #'cmsplugin_zinnia',
 )
 
-
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

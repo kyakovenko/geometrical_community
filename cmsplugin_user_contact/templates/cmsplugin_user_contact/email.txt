@@ -1,0 +1,3 @@
+{{ data.content|safe }}
+
+The sender: {{ data.name|safe }}

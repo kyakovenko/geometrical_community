@@ -1,0 +1,37 @@
+{% load i18n %}
+{% if form %}
+  <form class="forms" action="." method="post">
+    <fieldset>
+      <ol>
+        <li class="form-row hidden-row">
+          {% csrf_token %}
+        </li>
+        <li class="form-row text-input-row{% if form.name.errors %} error{% endif %}">
+          <input type="text" name="name" class="text-input required defaultText" title="{{ contact.sender_label }}*">
+          {% for error in form.name.errors %}
+            <span class="error">{{ error }}</span>
+          {% endfor %}
+        </li>
+        <li class="form-row text-input-row focus{% if form.email.errors %} error{% endif %}">
+          <input type="text" name="email" class="text-input required email defaultText focus" title="{{ contact.email_label }}*">
+          {% for error in form.email.errors %}
+            <span class="error">{{ error }}</span>
+          {% endfor %}
+        </li>
+        <li class="form-row text-area-row{% if form.content.errors %} error{% endif %}">
+          <textarea name="content" class="text-area required defaultText"></textarea>
+          {% for error in form.content.errors %}
+            <span class="error">{{ error }}</span>
+          {% endfor %}
+        </li>
+        <li class="button-row">
+          <input type="submit" value="{{ contact.submit|default:"Submit" }}" name="submit" class="btn-submit" style="opacity: 1;">
+        </li>
+      </ol>
+      <input type="hidden" class="v-error"  value="{% trans "This field is required." %}">
+      <input type="hidden" class="v-email" value="{% trans "Enter a valid email address." %}">
+    </fieldset>
+  </form>
+{% else %}
+	{{ contact.thanks|safe }}
+{% endif %}
