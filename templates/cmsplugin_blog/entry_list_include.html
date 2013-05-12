@@ -5,9 +5,9 @@
         <div class="info">
 
             <div class="date">
-                <div class="day">{{ entry.pub_date.day }}</div>
+                <div class="day">{{ entry.pub_date|date:'j' }}</div>
                 <div class="month">{{ entry.pub_date|date:"F" }}</div>
-                <div class="year">{{ entry.pub_date.year }}</div>
+                <div class="year">{{ entry.pub_date|date:'Y' }}</div>
             </div>
 
             <div class="details">
